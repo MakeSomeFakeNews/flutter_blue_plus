@@ -2608,6 +2608,7 @@ public class FlutterBluePlusPlugin implements
 
         // Manufacturer Specific Data 
         //HashMap<Integer, byte[]> manufDataB = new HashMap<>();
+        
         if (rawMsd != null && rawMsd.length >= 2) {
             // manufacturer ID uses little-endian order.
             int manufacturerId = (rawMsd[0] & 0xFF) | ((rawMsd[1] & 0xFF) << 8);
@@ -2618,7 +2619,7 @@ public class FlutterBluePlusPlugin implements
             System.arraycopy(rawMsd, 2, payload, 0, payloadLen);
 
             // add to array
-            manufDataB.put(manufacturerId, payload);
+            //manufDataB.put(manufacturerId, payload);
         }
 
         // Service Data
@@ -2648,7 +2649,7 @@ public class FlutterBluePlusPlugin implements
         if (advName != null)             {map.put("adv_name", advName);}
         if (txPower != min)              {map.put("tx_power_level", txPower);}
         if (appearance != 0)             {map.put("appearance", appearance);}
-        if (manufData != null)           {map.put("manufacturer_data", manufDataB);}
+        //if (manufData != null)           {map.put("manufacturer_data", manufDataB);}
         if (serviceData != null)         {map.put("service_data", serviceDataB);}
         if (serviceUuids != null)        {map.put("service_uuids", serviceUuidsB);}
         if (result.getRssi() != 0)       {map.put("rssi", result.getRssi());};
